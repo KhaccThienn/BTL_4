@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0">
+    <xsl:output method="html" indent="yes"/>
+    
+    <xsl:template match="/">
+        <html>
+            <head>
+                <title>Danh Sach</title>
+                <style>
+                    table{
+                    width: 100%;
+                    }
+                    td{
+                    padding: 10px;
+                    }
+                </style>
+            </head>
+            <body>
+                <table border='1px' cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td>
+                            ID
+                        </td>
+                        <td>
+                            FirstName
+                        </td>
+                        <td>
+                            LastName
+                        </td>
+                        <td>
+                            Address
+                        </td>
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            State Province Code
+                        </td>
+                        <td>
+                            Postal Code
+                        </td>
+                    </tr>
+                    <xsl:for-each select="Customers/Customer">
+                        <xsl:choose>
+                            <xsl:when test="starts-with(firstName, 'Nguyen') and string-length(lastName) &lt;= 3">
+                                <tr style='background: yellow;'>
+                                    <td>
+                                        <xsl:value-of select="ID"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="firstName"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="lastName"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="AddressLine1"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="City"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="email"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="StateProvinceCode"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="PostalCcode"/>
+                                    </td>
+                                </tr>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <tr>
+                                    <td>
+                                        <xsl:value-of select="ID"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="firstName"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="lastName"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="AddressLine1"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="City"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="email"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="StateProvinceCode"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="PostalCcode"/>
+                                    </td>
+                                </tr>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:for-each>
+                </table>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>

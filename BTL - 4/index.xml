@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="stylemain.xsl" type="text/xsl"?>
+<!-- <?xml-stylesheet href="yc2.xsl" type="text/xsl"?> -->
+<!-- <?xml-stylesheet href="yc3.xsl" type="text/xsl"?> -->
+<!-- <?xml-stylesheet href="yc4.xsl" type="text/xsl"?> -->
+<!-- <?xml-stylesheet href="yc5.xsl" type="text/xsl"?> -->
+<?xml-model href="valid.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<Customers>
+
+    <Customer>
+        <ID>6</ID>
+        <firstName>Nguyen</firstName>
+        <lastName>Khac</lastName>
+        <AddressLine1>238 Pham Van Dong</AddressLine1>
+        <City CTypeAdd="Huyen">Sai Gon</City>
+        <email>example@gmail.com</email>
+        <StateProvinceCode>VN</StateProvinceCode>
+        <PostalCcode>9000</PostalCcode>
+    </Customer>
+    
+    <Customer>
+        <ID>2</ID>
+        <firstName>Tran</firstName>
+        <lastName>Huong Giang</lastName>
+        <AddressLine1>Chuong My</AddressLine1>
+        <City CTypeAdd="Thanh Pho">Sai Gon</City>
+        <email>giangtran1706@gmail.com</email>
+        <StateProvinceCode>VN</StateProvinceCode>
+        <PostalCcode>9980</PostalCcode>
+    </Customer>
+
+    <Customer>
+        <ID>3</ID>
+        <firstName>Nguyen</firstName>
+        <lastName>Huo</lastName>
+        <AddressLine1>Hoang Quoc Viet</AddressLine1>
+        <City CTypeAdd="Thanh Pho">Nha Trang</City>
+        <email>giangtran1706@gmail.com</email>
+        <StateProvinceCode>VN</StateProvinceCode>
+        <PostalCcode>9980</PostalCcode>
+    </Customer>
+    
+    <Customer>
+        <ID>4</ID>
+        <firstName>Lee</firstName>
+        <lastName>Hux</lastName>
+        <AddressLine1>Chuong My</AddressLine1>
+        <City CTypeAdd="Thanh Pho">Nha Trang</City>
+        <email>giangtran1706@gmail.com</email>
+        <StateProvinceCode>VN</StateProvinceCode>
+        <PostalCcode>9980</PostalCcode>
+    </Customer>
+    
+</Customers>

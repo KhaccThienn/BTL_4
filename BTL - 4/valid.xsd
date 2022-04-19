@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="ID" type="xs:positiveInteger"></xs:element>
+    
+    <xs:element name="firstName">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="3"></xs:minLength>
+                <xs:maxLength value="50"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="lastName">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="3"></xs:minLength>
+                <xs:maxLength value="50"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="AddressLine1">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="1"></xs:minLength>
+                <xs:maxLength value="128"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:attribute name="CTypeAdd">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Thanh Pho"></xs:enumeration>
+                <xs:enumeration value="Tinh"></xs:enumeration>
+                <xs:enumeration value="Huyen"></xs:enumeration>
+                <xs:enumeration value="Quan"></xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:simpleType name="CCity">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ha Noi"></xs:enumeration>
+            <xs:enumeration value="Ha Tinh"></xs:enumeration>
+            <xs:enumeration value="Sai Gon"></xs:enumeration>
+            <xs:enumeration value="Hai Phong"></xs:enumeration>
+            <xs:enumeration value="Nghe An"></xs:enumeration>
+            <xs:enumeration value="Thai Binh"></xs:enumeration>
+            <xs:enumeration value="Nha Trang"></xs:enumeration>
+        <!-- <xs:pattern value=""></xs:pattern> -->
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="City">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="CCity">
+                    <xs:attribute ref="CTypeAdd" use="required" ></xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="StateProvinceCode">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="2"></xs:maxLength>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="PostalCcode">
+        <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger">
+                <xs:minInclusive value="9000"></xs:minInclusive>
+                <xs:maxInclusive value="9999"></xs:maxInclusive>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="email">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[^\s@]+@[^\s]+\.[^\s]{2,3}"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="Customer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ID"></xs:element>
+                <xs:element ref="firstName"></xs:element>
+                <xs:element ref="lastName"></xs:element>
+                <xs:element ref="AddressLine1"></xs:element>
+                <xs:element ref="City"></xs:element>
+                <xs:element ref="email"></xs:element>
+                <xs:element ref="StateProvinceCode"></xs:element>
+                <xs:element ref="PostalCcode"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Customers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Customer" minOccurs="1" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="ID">
+            <xs:selector xpath="Customer/ID"></xs:selector>
+            <xs:field xpath="."></xs:field>
+        </xs:unique>
+    </xs:element>
+
+</xs:schema>
